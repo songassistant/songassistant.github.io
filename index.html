@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="description" content="" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:400,600"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="app.css" />
+
+    <title>Sweerd</title>
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <!-- <script defer src="edit.js"></script> -->
+    <!-- <script defer src="renderer.js"></script> -->
+    <script type="module" defer src="setsynth.js"></script>
+    <script type="module" defer src="slide.js"></script>
+  </head>
+  <body>
+    <h1 class="head">Play</h1>
+
+    <div class="main">
+      <div class="all">
+        <div class="ranger-container">
+          <div class="check">
+            <input type="checkbox" name="start/stop" id="toggler" />
+          </div>
+          <label for="ranger">Tempo</label>
+          <input type="range" min="0" max="250" class="ranger" id="ranger" />
+          <label for="ranger">Detuner</label>
+          <input
+            type="range"
+            min="-2500"
+            max="2500"
+            class="ranger"
+            id="detune"
+          />
+          <label for="ranger">Frequency</label>
+          <input type="range" min="1" max="25000" class="ranger" id="freq" />
+          <label for="ranger">Distortion...</label>
+          <input type="range" min="0" max="20" class="ranger" id="other" />
+          <input type="range" min="0" max="10" class="ranger" id="wet" />
+          <select id="oversample">
+            <option value="none">none</option>
+            <option value="2x">2x</option>
+            <option value="4x">4x</option>
+          </select>
+        </div>
+        <div class="osc">
+          <label for="ranger">Synth</label>
+          <select id="synth-type">
+            <option value="Synth">Synth</option>
+            <option value="AMSynth">AMSynth</option>
+            <option value="DuoSynth">DuoSynth</option>
+            <option value="FMSynth">FMSynth</option>
+            <option value="MembraneSynth">MembraneSynth</option>
+            <option value="NoiseSynth">NoiseSynth</option>
+            <option value="PluckSynth">PluckSynth</option>
+            <option value="Sampler">Sampler</option>
+            <option value="PolySynth">PolySynth</option>
+          </select>
+          <div class="check">
+            <input type="checkbox" name="start/stop-osc" id="osc-toggle" />
+            <div class="osc-types">
+              <label for="ranger">Oscillator</label>
+              <select id="osc-types">
+                <option value="sine">sine</option>
+                <option value="sine2">sine2</option>
+                <option value="sine3">sine3</option>
+                <option value="sine4">sine4</option>
+                <option value="sawtooth">sawtooth</option>
+                <option value="triangle">triangle</option>
+                <option value="square">square</option>
+              </select>
+              <input type="checkbox" name="start/stop-seq" id="seq-toggle" />
+            </div>
+          </div>
+          <label for="ranger">Volume</label>
+          <input
+            type="range"
+            min="-400"
+            max="400"
+            class="ranger"
+            id="vol-knob"
+          />
+
+          <label for="ranger">bpm</label>
+          <input type="range" min="0" max="250" class="ranger" id="tempo" />
+          <label for="ranger">Frequency</label>
+          <input
+            type="range"
+            min="1"
+            max="25000"
+            class="ranger"
+            id="osc-freq"
+          />
+          <label for="ranger">Phase</label>
+
+          <input
+            type="range"
+            class="ranger"
+            min="0"
+            max="180"
+            name="phase"
+            id="phase"
+          />
+          <label for="ranger">harmonicity</label>
+          <input
+            type="range"
+            class="ranger"
+            min="0"
+            max="10"
+            name="harmonicity"
+            id="harmonicity"
+          />
+          <label for="ranger">detune</label>
+          <input
+            type="range"
+            class="ranger"
+            min="-3000"
+            max="5000"
+            name="detune"
+            id="detune-osc"
+          />
+          <select id="attack-curve">
+            <option value="exponential">Exponential</option>
+            <option value="sine">sine</option>
+            <option value="cosine">cosine</option>
+            <option value="bounce">bounce</option>
+            <option value="ripple">ripple</option>
+            <option value="step">step</option>
+          </select>
+          <label for="ranger">Modulation-type</label>
+
+          <select id="mod-type">
+            <option value="square">square</option>
+            <option value="sine">sine</option>
+            <option value="sine2">sine2</option>
+            <option value="sine3">sine3</option>
+            <option value="sawtooth">sawtooth</option>
+            <option value="triangle">triangle</option>
+          </select>
+          <label for="ranger">attack</label>
+
+          <input
+            type="range"
+            class="ranger"
+            min="0"
+            max="10"
+            name="attack"
+            id="attack"
+          />
+          <label for="ranger">decay</label>
+          <input
+            type="range"
+            class="ranger"
+            min="0"
+            max="10"
+            name="decay"
+            id="decay"
+          />
+          <label for="ranger">sustain</label>
+          <input
+            type="range"
+            class="ranger"
+            min="0"
+            max="10"
+            name="sustain"
+            id="sustain"
+          />
+          <label for="ranger">Release</label>
+          <input
+            type="range"
+            class="ranger"
+            min="0"
+            max="10"
+            name="release"
+            id="release"
+          />
+          <label for="ranger">Portamento</label>
+          <input
+            type="range"
+            class="ranger"
+            min="0"
+            max="100"
+            name="portamento"
+            id="portamentoctrl"
+          />
+        </div>
+      </div>
+
+      <!-- <input type="checkbox" name="square" id="square">
+     <input type="checkbox" name="sine" id="square">
+     <input type="checkbox" name="square" id="square"> -->
+
+      <div class="octave">
+        <div class="audio">
+          <audio class="sound msc-a" src="../audio/a.wav"></audio>
+        </div>
+        <div class="audio">
+          <audio
+            class="sound msc-b"
+            src="../audio/68438__pinkyfinger__piano-b.wav"
+          ></audio>
+        </div>
+        <div class="audio">
+          <audio
+            class="sound msc-c"
+            src="../audio/68439__pinkyfinger__piano-bb.wav"
+          ></audio>
+        </div>
+        <div class="audio">
+          <audio
+            class="sound msc-d"
+            src="../audio/68440__pinkyfinger__piano-c.wav"
+          ></audio>
+        </div>
+        <div class="audio">
+          <audio
+            class="sound msc-e"
+            src="../audio/68441__pinkyfinger__piano-c.wav"
+          ></audio>
+        </div>
+      </div>
+    </div>
+    <div class="r-holder">
+      <!-- <input type="range" min="-100" max="0" value="0" class="range blue"/> -->
+    </div>
+
+    <div id="graph" class="graph"></div>
+
+    <div class="container">
+      <!-- slider app container -->
+      <div id="app"></div>
+    </div>
+
+    <script type="text/javascript" src="app.js"></script>
+
+    <script>
+      // slider app options
+      const opts = {
+        DOMselector: "#app",
+        sliders: [
+          {
+            radius: 100 / 2,
+            min: 0,
+            max: 100 / 2,
+            step: 10 / 2,
+            initialValue: 50 / 2,
+            color: "chartreuse",
+            displayName: "Value 1",
+          },
+          // {
+          //     radius: 160/2,
+          //     min: 0,
+          //     max: 3000/2,
+          //     step: 100/2,
+          //     initialValue: 200/2,
+          //     color: 'aqua',
+          //     displayName: 'Value 2'
+          // },
+          {
+            radius: 40 / 2,
+            min: 0,
+            max: 200 / 2,
+            step: 10,
+            initialValue: 20 / 2,
+            color: "red",
+            displayName: "Value 3",
+          },
+        ],
+      };
+
+      // instantiate the slider
+      const slider = new Slider(opts);
+      // slider.draw();
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/1.33.1/plotly.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.74/Tone.js"></script>
+  </body>
+</html>
